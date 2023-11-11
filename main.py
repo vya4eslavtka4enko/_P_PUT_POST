@@ -29,7 +29,7 @@ headers = {
 # DATE.strftime('%Y%m%d')
 post_pixels_conf = {
     'date': '20231110',
-    'quantity': "1"
+    'quantity': input('How many lines do you write today ')
 }
 response = requests.post(url=graph_endpoint,json = graph_config,headers=headers)
 print(response.text)
@@ -42,6 +42,9 @@ put_update = {
     'date':'20231110',
     'quantity':'22'
 }
-
+datee = '20231110'
 response = requests.post(url=pixel_post_endpoint,json = put_update,headers=headers)
-print(response)
+#
+pixel_post_delete = f"{pixela_endpoint}/{USER_NAME}/graphs/graphprog/20231111"
+response = requests.delete(url=pixel_post_delete,headers=headers)
+print(response.text)
